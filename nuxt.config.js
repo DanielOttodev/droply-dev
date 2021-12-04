@@ -2,7 +2,7 @@ import colors from "vuetify/es5/util/colors";
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  mode: "spa",
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -36,7 +36,29 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    [
+      "@nuxtjs/firebase",
+      {
+        config: {
+          apiKey: "AIzaSyBytK1JYa8sxGMlCPPByqM_nfSSX9qLsd8",
+          authDomain: "droply-dev.firebaseapp.com",
+          projectId: "droply-dev",
+          storageBucket: "droply-dev.appspot.com",
+          messagingSenderId: "695298495480",
+          appId: "1:695298495480:web:64a84e1332db1e5f533c0d",
+          measurementId: "G-D2F9Z8LFF7",
+        },
+        services: {
+          auth: {
+            initialize: {
+              onAuthStateChangedMutation: "ON_AUTH_STATE_CHANGED_MUTATION",
+            },
+          },
+        },
+      },
+    ],
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
